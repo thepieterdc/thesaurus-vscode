@@ -1,0 +1,61 @@
+{
+  "name": "thesaurus-vscode",
+  "displayName": "Thesaurus",
+  "description": "Consult a thesaurus from within Visual Studio Code.",
+  "version": "1.0.0",
+  "publisher": "thepieterdc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thepieterdc/thesaurus-vscode"
+  },
+  "engines": {
+    "vscode": "^1.34.0"
+  },
+  "license": "MIT",
+  "categories": [
+    "Other"
+  ],
+  "icon": "assets/icon.png",
+  "activationEvents": [
+    "onCommand:thesaurus.find"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "thesaurus.find",
+        "title": "Thesaurus: Find synonyms",
+        "when": "false"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "thesaurus.find",
+          "title": "Thesaurus: Find synonyms"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "lint": "eslint . --ext .ts,.tsx",
+    "package": "vsce package",
+    "vscode:publish": "vsce publish --yarn",
+    "vscode:prepublish": "yarn run compile",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "got": "^11.8.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.14",
+    "@types/vscode": "^1.34.0",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.15.0",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3",
+    "vsce": "^1.83.0"
+  }
+}
